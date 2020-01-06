@@ -9,6 +9,14 @@ Using twinejs available here https://github.com/klembot/twinejs/ .
 
 # Progress
 * Part 1: Seeds of resistance
+** First Mission - Transfered from source.
+** The Way Back
+** Train Ride
+** Arrival
+** 7th Heaven
+** Debriefing
+** Childhood Promise
+** The Next Morning
 * Part 2: Chased by Shinra
 * Part 3: Strange shopping trip
 * Part 4: The sky is falling
