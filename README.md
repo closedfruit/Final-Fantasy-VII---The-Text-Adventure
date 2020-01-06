@@ -9,7 +9,7 @@ Using twinejs available here https://github.com/klembot/twinejs/ .
 
 # Progress
 * Part 1: Seeds of resistance
-    * First Mission - Transfered from source.
+    * First Mission - Transferred from source.
     * The Way Back
     * Train Ride
     * Arrival
