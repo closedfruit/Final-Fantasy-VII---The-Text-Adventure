@@ -14,7 +14,7 @@ Using twinejs available here https://github.com/klembot/twinejs/ .
 * Story
    * Part 1: Seeds of resistance
       * First Mission - Transferred from source.
-      * The Way Back
+      * The Way Back - Transferred from source.
       * Train Ride
       * Arrival
       * 7th Heaven
