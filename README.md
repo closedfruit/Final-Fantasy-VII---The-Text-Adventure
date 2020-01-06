@@ -8,7 +8,8 @@ Many people can't play visual games. This remake is meant to help everybody enjo
 Using twinejs available here https://github.com/klembot/twinejs/ .
 
 # Progress
-* Software
+* Code
+   * Script to check for duplicate story parts.
    * Script to join twine parts together.
 * Story
    * Part 1: Seeds of resistance
@@ -40,7 +41,7 @@ Using twinejs available here https://github.com/klembot/twinejs/ .
    * Part 19: High-tech hijacking
    * Part 20: With renewed purpose
    * Part 21: Back to the sourceor the final confrontation with Sephiroth. 
-    * Part 22: The last battle
+   * Part 22: The last battle
     
 # Credits
 All credits goes out the the creators of Final Fantasy VII. The source used for this project can be found here http://letao.is-a-geek.net/ff7script/index.html .
