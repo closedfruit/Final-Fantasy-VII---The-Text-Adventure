@@ -8,7 +8,6 @@ Many people can't play visual games. This remake is meant to help everybody enjo
 Using twinejs available here https://github.com/klembot/twinejs/ .
 
 # Progress
-
 * Part 1: Seeds of resistance
 * Part 2: Chased by Shinra
 * Part 3: Strange shopping trip
