@@ -18,9 +18,9 @@ Using twinejs available here https://github.com/klembot/twinejs/ .
       * Train Ride - Transferred from source.
       * Arrival - Transferred from source.
       * 7th Heaven - Transferred from source.
-      * Debriefing
-      * Childhood Promise
-      * The Next Morning
+      * Debriefing - Transferred from source.
+      * Childhood Promise - Transferred from source.
+      * The Next Morning - Transferred from source.
    * Part 2: Chased by Shinra
    * Part 3: Strange shopping trip
    * Part 4: The sky is falling
