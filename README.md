@@ -16,8 +16,8 @@ Using twinejs available here https://github.com/klembot/twinejs/ .
       * First Mission - Transferred from source.
       * The Way Back - Transferred from source.
       * Train Ride - Transferred from source.
-      * Arrival
-      * 7th Heaven
+      * Arrival - Transferred from source.
+      * 7th Heaven - Transferred from source.
       * Debriefing
       * Childhood Promise
       * The Next Morning
