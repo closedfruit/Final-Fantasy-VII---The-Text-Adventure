@@ -8,10 +8,23 @@ Many people can't play visual games. This remake is meant to help everybody enjo
 Working with twinejs available here https://github.com/klembot/twinejs/ .
 
 ## Progress
-* Stats from check.py
+* Stats
   * date: 2020-01-09
   * passages: 254
   * story characters: 22528
+  * actors and lines of dialogue
+     * Barret: 84
+     * Battle: 3
+     * Biggs: 19
+     * Cloud: 54
+     * Jessie: 48
+     * Man: 4
+     * Marlene: 5
+     * Person: 2
+     * Speaker: 10
+     * Tifa: 62
+     * Wedge: 19
+
 * Code
    * Script to check for duplicate story parts. - Start working with check.py.
    * Script to join twine parts together.
