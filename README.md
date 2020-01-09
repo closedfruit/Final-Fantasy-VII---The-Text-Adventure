@@ -8,10 +8,10 @@ Many people can't play visual games. This remake is meant to help everybody enjo
 Working with twinejs available here https://github.com/klembot/twinejs/ .
 
 ## Progress
-* date: 2020-01-09
-* passages: 254
-* story characters: 22528
-
+* Stats from check.py
+  * date: 2020-01-09
+  * passages: 254
+  * story characters: 22528
 * Code
    * Script to check for duplicate story parts.
    * Script to join twine parts together.
