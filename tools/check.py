@@ -1,4 +1,5 @@
 import re
+import datetime
 
 def findDuplicates(listOfElems):
     ''' Check if given list contains any duplicates '''
@@ -35,3 +36,21 @@ print('number of unique passagedata: ' + str(len(set(passagedata))))
 print('following duplicates found and needs to be fixed before a join: ')
 listOfDuplicates = findDuplicates(passagedata)
 print(listOfDuplicates)
+
+
+with open('list-passage.txt', 'w') as f:
+    passagedata.sort()
+    final = ''
+    for item in passagedata:
+        final = final + item + '\n'
+    f.write(final)
+    print('a list of passagenames dumped to list-passage.txt')
+
+
+with open('stats.txt', 'w') as f:
+        passagedata.sort()
+        final = ''
+        final = final + 'date: ' + str(datetime.date.today()) + '\n'
+        final = final + 'passages: ' + str(len(passagedata)) + '\n'
+        f.write(final)
+        print('a list of stats dumped to stats.txt')
