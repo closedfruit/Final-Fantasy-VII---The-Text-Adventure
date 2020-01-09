@@ -1,13 +1,17 @@
 # Final Fantasy VII - The Text Adventure
 A Final Fantasy VII text adventure.
 
-# Why?
+## Why?
 Many people can't play visual games. This remake is meant to help everybody enjoy Final Fantasy VII.
 
-# How?
-Using twinejs available here https://github.com/klembot/twinejs/ .
+## How?
+Working with twinejs available here https://github.com/klembot/twinejs/ .
 
-# Progress
+## Progress
+* date: 2020-01-09
+* passages: 254
+* story characters: 22528
+
 * Code
    * Script to check for duplicate story parts.
    * Script to join twine parts together.
@@ -43,5 +47,5 @@ Using twinejs available here https://github.com/klembot/twinejs/ .
    * Part 21: Back to the sourceor the final confrontation with Sephiroth. 
    * Part 22: The last battle
     
-# Credits
+## Credits
 All credits goes out the the creators of Final Fantasy VII. The source used for this project can be found here http://letao.is-a-geek.net/ff7script/index.html .
