@@ -2,6 +2,7 @@ import twinejs
 
 templateFileName = '../template/index.html'
 outputFileName = '../release/index.html'
+nFiles = 22 #22 files. 1.html > 22.html
 
 def getTemplate(fileName):
     print('getTemplate(): ' + fileName)
@@ -15,20 +16,40 @@ def saveBuild(fileName, contents):
     with open(fileName, 'w+') as f:
         f.write(contents)
 
+def getAllIndex():
+    print('getAllIndex()')
+
+    mergedIndexData = ''
+
+    for x in range(nFiles):
+        fileName = '../Stories/' + str(x+1) + '.html'
+        print('parse file: ' + fileName)
+
+        mergedIndexData += 'Chapter ' + str(x+1) + '\n'
+        mergedIndexData += twinejs.getIndex(fileName) + '\n\n'
+
+    return mergedIndexData
+
+def renderTemplete(fileName, contents):
+    print('renderTemplete(): ' + fileName)
+
+    with open (fileName, 'rt') as myfile:
+        template = myfile.read()
+        renderContents = template.replace('<contents>', contents)
+        return renderContents
+
 def build():
     print('build()')
 
-    templateContents = getTemplate(templateFileName)
-
     mergedPassageData = ''
+    mergedPassageData += renderTemplete('../template/toc.html', getAllIndex())
 
-    #22 files. 1.html > 22.html
-    for x in range(22):
+    for x in range(nFiles):
         fileName = '../Stories/' + str(x+1) + '.html'
         print('parse file: ' + fileName)
         mergedPassageData = mergedPassageData + '\n' + twinejs.getAllPassagesFromFile(fileName)
 
-    finalContents = templateContents.replace('<content>', mergedPassageData)
+    finalContents = renderTemplete(templateFileName, mergedPassageData)
 
     saveBuild(outputFileName, finalContents)
 
