@@ -13,7 +13,7 @@ Working with twinejs available here https://github.com/klembot/twinejs/ .
   * passages: 254
   * story characters: 22528
 * Code
-   * Script to check for duplicate story parts.
+   * Script to check for duplicate story parts. - Start working with check.py.
    * Script to join twine parts together.
 * Story
    * Part 1: Seeds of resistance
