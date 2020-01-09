@@ -1,3 +1,4 @@
+import re
 import twinejs
 
 templateFileName = '../template/index.html'
@@ -7,7 +8,7 @@ nFiles = 22 #22 files. 1.html > 22.html
 def getTemplate(fileName):
     print('getTemplate(): ' + fileName)
 
-    with open (fileName, 'rt') as myfile:  # Open lorem.txt for reading text
+    with open (fileName, 'rt') as myfile:
         return myfile.read()
 
 def saveBuild(fileName, contents):
@@ -38,6 +39,20 @@ def renderTemplete(fileName, contents):
         renderContents = template.replace('<contents>', contents)
         return renderContents
 
+def reindexSource(contents):
+    print('reindexSource()')
+
+    counter = 1
+
+    pattern = '(pid="\d*")'
+    items = re.findall(pattern, contents, re.MULTILINE|re.DOTALL)
+    #does not work
+    for item in items:
+        newString = 'pid="' + str(counter) + '"'
+        contents.replace(item, newString, 1)
+
+    return contents
+
 def build():
     print('build()')
 
@@ -50,6 +65,7 @@ def build():
         mergedPassageData = mergedPassageData + '\n' + twinejs.getAllPassagesFromFile(fileName)
 
     finalContents = renderTemplete(templateFileName, mergedPassageData)
+    finalContents = reindexSource(finalContents)
 
     saveBuild(outputFileName, finalContents)
 
