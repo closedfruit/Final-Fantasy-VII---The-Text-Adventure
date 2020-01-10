@@ -3,7 +3,7 @@ import datetime
 
 def findDuplicates(listOfElems):
     print('find duplicates')
-    ''' Check if given list contains any duplicates '''
+
     listOfDuplicates = []
     for elem in listOfElems:
         if listOfElems.count(elem) > 1:
@@ -13,14 +13,16 @@ def findDuplicates(listOfElems):
 
 def getStoryData(fileName):
     print('getStoryData: ' + fileName)
-    with open (fileName, 'rt') as myfile:  # Open lorem.txt for reading text
-        contents = myfile.read()              # Read the entire file into a string
+
+    with open (fileName, 'rt') as myfile:
+        contents = myfile.read()
         pattern = '<tw-storydata.*?>(.*)</tw-storydata>'
         result = re.findall(pattern, contents, re.MULTILINE|re.DOTALL)
         return result[0]
 
 def listActor():
     print('list actors')
+
     listActor = []
     #22 files. 1.html > 22.html
     for x in range(22):
@@ -46,16 +48,16 @@ def listActor():
 listActor()
 
 def listPassage():
+    print('listPassage()')
     passagedata = []
 
-    print('scan')
+
     #22 files. 1.html > 22.html
     for x in range(22):
         fileName = '../Stories/' + str(x+1) + '.html'
-        with open (fileName, 'rt') as myfile:  # Open lorem.txt for reading text
-            contents = myfile.read()              # Read the entire file into a string
+        with open (fileName, 'rt') as myfile:
+            contents = myfile.read()
 
-            # Three digit number followed by space followed by two digit number
             pattern = '<tw-passagedata.*? name="(.*?)".*?>'
             result = re.findall(pattern, contents)
 
