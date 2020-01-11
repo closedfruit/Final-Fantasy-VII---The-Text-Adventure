@@ -69,4 +69,62 @@ def build():
 
     saveBuild(outputFileName, finalContents)
 
-build()
+def buildWithNewEngine():
+    print('buildWithNewEngine()')
+
+    mergedPassageData = ''
+    mergedPassageData += renderTemplete('../template/toc.html', getAllIndex())
+
+    for x in range(nFiles):
+        fileName = '../Stories/' + str(x+1) + '.html'
+        print('parse file: ' + fileName)
+        mergedPassageData = mergedPassageData + '\n' + twinejs.getAllPassagesFromFile(fileName)
+
+    # manual replaces. order is important.
+    mergedPassageData = mergedPassageData.replace('<tw', '\n<tw')
+    mergedPassageData = mergedPassageData.replace('">', '">\n')
+    mergedPassageData = mergedPassageData.replace('</tw', '\n</tw')
+    #mergedPassageData = mergedPassageData.replace('\n\n', '\n')
+
+    listRows = mergedPassageData.split('\n')
+
+    for nRow in range(len(listRows)):
+        striped = listRows[nRow].strip()
+        if striped:
+            if striped[0] != '<' and striped[0] != '}':
+                listRows[nRow] = 'echo(\'' + listRows[nRow] + '\');'
+
+        # is it's a starting element?
+        pattern = '<tw-passagedata.*? name="(.*?)".*?>'
+        result = re.findall(pattern, striped)
+        if len(result) > 0:
+            listRows[nRow] = 'case \'' + result[0] + '\':';
+            #needs to clean name
+        listRows[nRow] += '\n'
+
+    #print(str(len(listRows)))
+    #finalContents = renderTemplete(templateFileName, mergedPassageData)
+    #finalContents = reindexSource(finalContents)
+    newCode = "".join(listRows)
+
+    # first the [[label|action]]
+    pattern = '\[\[(.*?)\|(.*?)\]\]'
+    replace = "<button type=\"button\" onclick=\"doIt(\\'\\2\\')\">\\1</button>"
+    newCode = re.sub(pattern, r"" + replace + "", newCode)
+
+    # then the [[label same as action]]
+    pattern = '\[\[(.*?)\]\]'
+    replace = "<button type=\"button\" onclick=\"doIt(\\'\\1\\')\">\\1</button>"
+    newCode = re.sub(pattern, r"" + replace + "", newCode)
+
+    # insert the break;
+    newCode = newCode.replace('</tw-passagedata>', 'break;')
+
+    finalContents = renderTemplete('../engine/index.html', newCode)
+    with open('trash.html', 'w+') as f:
+        f.write(finalContents)
+
+    #saveBuild(outputFileName, finalContents)
+
+
+buildWithNewEngine()
