@@ -1,6 +1,8 @@
 import re
 import twinejs
 
+# sources to read from
+pathToStories = '../Stories/'
 templateTwinejsFileName = '../template/twinejs.html'
 templateEngineFileName = '../template/engine.html'
 templateTocFileName = '../template/toc.html'
@@ -27,11 +29,18 @@ def buildToc():
     contents = ''
 
     for x in range(nFiles):
-        fileName = '../Stories/' + str(x+1) + '.html'
+        fileName = pathToStories + str(x+1) + '.html'
         print('parse file: ' + fileName)
 
-        contents += 'Chapter ' + str(x+1) + '\n'
-        contents += twinejs.getFirstPassage(fileName) + '\n\n'
+        contents += '<h3>Chapter ' + str(x+1) + '</h3>\n'
+
+        firstPassage = twinejs.getFirstPassage(fileName)
+        firstPassage = firstPassage.split('\n')
+
+        for row in range(len(firstPassage)):
+            firstPassage[row] = '<h4>' + firstPassage[row] + '</h4>\n\n'
+
+        contents += "".join(firstPassage)#???
 
     return contents
 
@@ -65,7 +74,7 @@ def buildAsTwinejs():
     contents += renderTemplete(templateTocFileName, buildToc())
 
     for x in range(nFiles):
-        fileName = '../Stories/' + str(x+1) + '.html'
+        fileName = pathToStories + str(x+1) + '.html'
         print('parse file: ' + fileName)
         contents += '\n' + twinejs.getAllPassagesFromFile(fileName)
 
@@ -82,7 +91,7 @@ def buildAsNewEngine():
 
     print('merge data.')
     for x in range(nFiles):
-        fileName = '../Stories/' + str(x+1) + '.html'
+        fileName = pathToStories + str(x+1) + '.html'
         print('merge file: ' + fileName)
         contents += '\n' + twinejs.getAllPassagesFromFile(fileName)
 
@@ -97,7 +106,7 @@ def buildAsNewEngine():
     for nRow in range(len(listRows)):
         striped = listRows[nRow].strip()
         if striped:
-            if striped[0] != '<' and striped[0] != '}':
+            if striped[0] != '}' and listRows[nRow].find('</tw-passagedata>') < 0:
                 listRows[nRow] = 'echo(\'' + listRows[nRow] + '\');'
 
         # is it's a starting element?
@@ -128,7 +137,13 @@ def buildAsNewEngine():
 
     contents = renderTemplete(templateEngineFileName, contents)
 
-    #remove empty empty lines
+    #remove double space
+    print('remove double space.')
+    while contents.replace('  ', ' ') != contents:
+        contents = contents.replace('  ', ' ')
+
+    #remove empty lines
+    print('remove empty lines.')
     while contents.replace('\n\n', '\n') != contents:
         contents = contents.replace('\n\n', '\n')
 
