@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="1" startnode="1" creator="Twine" creator-version="2.3.5" ifid="BDD5F995-6376-4429-9A8C-E58DF033A9FB" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Part 1: Seeds of resistance" tags="" position="1154,386" size="100,100">[[First Mission]]
+<tw-storydata name="1" startnode="1" creator="Twine" creator-version="2.3.5" ifid="BDD5F995-6376-4429-9A8C-E58DF033A9FB" zoom="0.6" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Part 1: Seeds of resistance" tags="" position="1154,386" size="100,100">[[First Mission]]
 [[The Way Back]]
 [[Train Ride]]
 [[Arrival]]
@@ -30,7 +30,9 @@ Barret: C&#39;mon newcomer. Follow me.
 
 [[Check item in front of Jessie]]
 
-[[Help Jessie]]
+if(getViews([[Help Jessie]] &lt; 1)){
+	[[Help Jessie]]
+}
 
 [[Go back to the top|002001]]
 [[Go to control room|Control room with locked doors 002]]</tw-passagedata><tw-passagedata pid="4" name="Train Ride" tags="" position="2473,493" size="100,100">Wedge: Cloud never came.
@@ -328,9 +330,13 @@ Speaker: Two seconds remaining
 
 Speaker: One second remaining
 
-[[Retrace path up|The Way Back]]</tw-passagedata><tw-passagedata pid="25" name="Check item in front of Jessie" tags="" position="1024,648" size="100,100">Received &quot;Potion&quot;!
+[[Retrace path up|The Way Back]]</tw-passagedata><tw-passagedata pid="25" name="Check item in front of Jessie" tags="" position="1024,648" size="100,100">if(getViews() &lt; 1){
+	Received &quot;Potion&quot;!
+}else{
+	You find nothing.
+}
 
-[[Continue|The Way Back]]</tw-passagedata><tw-passagedata pid="26" name="Help Jessie" tags="" position="1059,845" size="100,100">Cloud: You all right?
+[[Continue|The Way Back]]</tw-passagedata><tw-passagedata pid="26" name="Help Jessie" tags="" position="967.3333333333334,841.6666666666666" size="100,100">Cloud: You all right?
 
 Jessie: My leg got stuck.
 
@@ -379,7 +385,7 @@ Barret: If it&#39;s about your money Save it &#39;til we&#39;re back at the hide
 Flower girl: What happened?
 
 [[You&#39;d better get out of here]]
-[[Nothing...hey, listen...|Listen Flower girl]]</tw-passagedata><tw-passagedata pid="32" name="You&#39;d better get out of here" tags="" position="1018,1845" size="100,100">Cloud: You&#39;d better get out of here
+[[Nothing...hey, listen...|Listen Flower girl]]</tw-passagedata><tw-passagedata pid="32" name="You&#39;d better get out of here" tags="" position="1013,1863.3333333333333" size="100,100">Cloud: You&#39;d better get out of here
 
 Flower girl: Really? I don&#39;t know what&#39;s going on, but all right.
 
@@ -389,7 +395,7 @@ Cloud: ............
 
 [[Don&#39;t see many flowers around here]]
 [[Never mind]]
-[[Buy one]]
+[[Buy one|Buy a flower from Aeris]]
 [[Forget it]]
 
 Continue down</tw-passagedata><tw-passagedata pid="34" name="Square with a fountain in the middle" tags="" position="1304,2299" size="100,100">[[Talk to the person walking]]
@@ -399,7 +405,7 @@ Continue down</tw-passagedata><tw-passagedata pid="34" name="Square with a fount
 
 [[Continue down street|Street overlooking train tracks]]
 
-. Quickly choose &quot;Later!&quot; if you don&#39;t want to fight the battles.</tw-passagedata><tw-passagedata pid="35" name="Buy one" tags="" position="1534,1867" size="100,100">Choose this if you want to date Tifa/Barret
+. Quickly choose &quot;Later!&quot; if you don&#39;t want to fight the battles.</tw-passagedata><tw-passagedata pid="35" name="Buy a flower from Aeris" tags="" position="1567.3333333333333,1848.6666666666667" size="100,100">// Choose this if you want to date Tifa/Barret
 
 Flower girl: Oh, thank you!
 
@@ -409,12 +415,12 @@ Flower girl: Here you are!
 
 Flower girl: Ahh...not again.
 
-[[Continue downtown|Square with a fountain in the middle]] </tw-passagedata><tw-passagedata pid="37" name="Don&#39;t see many flowers around here" tags="" position="1633,1536" size="100,100">Flower girl: Oh, these? Do you like them? They&#39;re only a gil...?</tw-passagedata><tw-passagedata pid="38" name="Never mind" tags="" position="1396,1880" size="100,100">Flower girl: What! Tell me!
+[[Continue downtown|Square with a fountain in the middle]] </tw-passagedata><tw-passagedata pid="37" name="Don&#39;t see many flowers around here" tags="" position="1654.6666666666667,1582.6666666666667" size="100,100">Flower girl: Oh, these? Do you like them? They&#39;re only a gil...?</tw-passagedata><tw-passagedata pid="38" name="Never mind" tags="" position="1396,1880" size="100,100">Flower girl: What! Tell me!
 
 Flower girl: Uh, excuse me, would you like to buy some flowers? They&#39;re only one gil.
 
-[[Buy one]]
-[[Forget it]]</tw-passagedata><tw-passagedata pid="39" name="Talk to the person walking" tags="" position="1057,2395" size="100,100">Person: Just what the hell&#39;s going on!?
+[[Buy a flower|Buy a flower from Aeris]]
+[[Forget it]]</tw-passagedata><tw-passagedata pid="39" name="Talk to the person walking" tags="" position="1002,2386.6666666666665" size="100,100">Person: Just what the hell&#39;s going on!?
 
 [[Continue|Square with a fountain in the middle]]</tw-passagedata><tw-passagedata pid="40" name="Talk to the person standing" tags="" position="1122,2527" size="100,100">Person: Wonder what that is on the wall over there. Let&#39;s see...
 
@@ -422,7 +428,11 @@ Person: Don&#39;t be fooled by Shinra! Mako energy doesn&#39;t last forever! Mak
 
 Person: Protectors of the planet: AVALANCHE
 
-[[Continue|Square with a fountain in the middle]]</tw-passagedata><tw-passagedata pid="41" name="Check item on the left side" tags="" position="1049,2233" size="100,100">Received &quot;Potion&quot;!
+[[Continue|Square with a fountain in the middle]]</tw-passagedata><tw-passagedata pid="41" name="Check item on the left side" tags="" position="1019,2213" size="100,100">if(isFirstTime()){
+	Received &quot;Potion&quot;!
+}else{
+	Nothing here.
+}
 
 [[Continue|Square with a fountain in the middle]]</tw-passagedata><tw-passagedata pid="42" name="Street overlooking train tracks" tags="" position="1640,2539" size="100,100">Soldier:
 
@@ -521,7 +531,7 @@ Man: They must have a real calculating leader. I wonder what they&#39;ll do next
 
 [[Continue|Passenger car on the train]]</tw-passagedata><tw-passagedata pid="46" name="Talk to Barret" tags="" position="2808,1360" size="100,100">Barret: Stop actin&#39; like a damn kid. Si&#39;down an&#39; shu&#39;up!
 
-[[Continue|Passenger car on the train]]</tw-passagedata><tw-passagedata pid="47" name="Talk to Biggs" tags="" position="2163,1004" size="100,100">if(getViews() &lt; 1){
+[[Continue|Passenger car on the train]]</tw-passagedata><tw-passagedata pid="47" name="Talk to Biggs" tags="" position="2164.6666666666665,1004" size="100,100">if(isFirstTime()){
   Biggs: It seems this train hasn&#39;t switched to security mode yet.
 
   Biggs: I&#39;m sure that will change by tomorrow.
@@ -529,7 +539,7 @@ Man: They must have a real calculating leader. I wonder what they&#39;ll do next
   Biggs: ...YAWN...that sure took its toll on me. I&#39;m gonna sleep till we get to the station.
 }
 
-[[Continue|Passenger car on the train]]</tw-passagedata><tw-passagedata pid="48" name="Talk to Wedge" tags="" position="2242,1512" size="100,100">if(getViews() &lt; 1){
+[[Continue|Passenger car on the train]]</tw-passagedata><tw-passagedata pid="48" name="Talk to Wedge" tags="" position="2242,1512" size="100,100">if(isFirstTime()){
 	Wedge: Someday AVALANCHE&#39;s gonna be famous ...and me, too!
 }else{
   Wedge: Cloud!!
@@ -541,7 +551,7 @@ Man: They must have a real calculating leader. I wonder what they&#39;ll do next
   [[I wouldn&#39;t hold my breath]]
 }
 
-[[Continue|Passenger car on the train]]</tw-passagedata><tw-passagedata pid="49" name="Talk to Jessie" tags="" position="2603,1828" size="100,100">Jessie: Hey, Cloud. You want to look at this with me?
+[[Continue|Passenger car on the train]]</tw-passagedata><tw-passagedata pid="49" name="Talk to Jessie" tags="" position="2781.333333333333,1824.6666666666667" size="100,100">Jessie: Hey, Cloud. You want to look at this with me?
 
 Jessie: It&#39;s a map of the Midgar Rail System. Let&#39;s look at it together. I&#39;ll explain it to you.
 
@@ -611,30 +621,31 @@ Jessie: ...anyhow, we&#39;re almost back now. That&#39;s a relief.
 
 [[Talk to Jessie|Talk to Jessie 002]]
 
-[[Talk to Jessie again|Talk to Jessie again 002]]
+[[Walk toward Barret]]</tw-passagedata><tw-passagedata pid="55" name="Talk to Biggs 002" tags="" position="2549.3333333333335,2657.333333333333" size="100,100">Biggs: ...snore...heebeebeeheebee...snore... (Don&#39;t act so damn big, Barret...snooze...)
 
-[[Walk toward Barret]]</tw-passagedata><tw-passagedata pid="55" name="Talk to Biggs 002" tags="" position="2406,1984" size="100,100">Biggs: ...snore...heebeebeeheebee...snore... (Don&#39;t act so damn big, Barret...snooze...)
+[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="56" name="Thanks anyway" tags="" position="2247.666666666667,2267.333333333333" size="100,100">Jessie:	Oh yeah, you might regret it. I&#39;m the type who takes things personal.
 
-[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="56" name="Thanks anyway" tags="" position="2311,2459" size="100,100">Jessie:	Oh yeah, you might regret it. I&#39;m the type who takes things personal.
-
-[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="57" name="Looking forward to it" tags="" position="2309,2642" size="100,100">Choose this if you want to date Aeris/Yuffie/Barret
+[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="57" name="Looking forward to it" tags="" position="2272.3333333333335,2518.6666666666665" size="100,100">Choose this if you want to date Aeris/Yuffie/Barret
 
 Jessie: Okay, then I&#39;ll put a little extra effort in and make it with a BANG.
 
-[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="58" name="Talk to Wedge 002" tags="" position="2284,2266" size="100,100">Wedge: I&#39;m seein&#39; stars. This sucks. I hate the dark.
+[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="58" name="Talk to Wedge 002" tags="" position="2722.3333333333335,2647.6666666666665" size="100,100">Wedge: I&#39;m seein&#39; stars. This sucks. I hate the dark.
 
-[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="59" name="Talk to Jessie 002" tags="" position="2107,2409" size="100,100">Jessie: I know!
+[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="59" name="Talk to Jessie 002" tags="" position="2133.6666666666665,2405.6666666666665" size="100,100">if(isFirstTime()){
+  Jessie: I know!
 
-Jessie: Next time, I&#39;ll give you one I made myself.
+  Jessie: Next time, I&#39;ll give you one I made myself.
 
-[[Thanks anyway]]
+  [[Thanks anyway]]
 
-[[Looking forward to it]]
-</tw-passagedata><tw-passagedata pid="60" name="Talk to Jessie again 002" tags="" position="2276,2094" size="100,100">Jessie: We&#39;re almost there. After talking with you, I really want to do it!
+  [[Looking forward to it]]
+}else{
+  Jessie: We&#39;re almost there. After talking with you, I really want to do it!
 
-Jessie: I think you&#39;ve lit my fuse!
+  Jessie: I think you&#39;ve lit my fuse!
 
-[[Continue|Passenger car on the train 002]]</tw-passagedata><tw-passagedata pid="61" name="Walk toward Barret" tags="" position="2827,2875" size="100,100">Barret: Look...you can see the surface now. This city don&#39;t have no day or night.
+  [[Continue|Passenger car on the train 002]]
+}</tw-passagedata><tw-passagedata pid="60" name="Walk toward Barret" tags="" position="2827,2875" size="100,100">Barret: Look...you can see the surface now. This city don&#39;t have no day or night.
 
 Barret: If that plate weren&#39;t there... we could see the sky.
 
@@ -664,9 +675,9 @@ Cloud: I know... no one lives in the slums because they want to.
 
 Cloud: It&#39;s like this train. It can&#39;t run anywhere except where its rails take it.
 
-[[Continue|Arrival]]</tw-passagedata><tw-passagedata pid="62" name="Walk toward the right side" tags="" position="3860,700" size="100,100">Barret: Yo, Cloud! You lissen up!
+[[Continue|Arrival]]</tw-passagedata><tw-passagedata pid="61" name="Walk toward the right side" tags="" position="3860,700" size="100,100">Barret: Yo, Cloud! You lissen up!
 
-[[Walk down toward Barret]] </tw-passagedata><tw-passagedata pid="63" name="Walk down toward Barret" tags="" position="3675,882" size="100,100">Barret: This mission was a success. But don&#39;t get lazy now.
+[[Walk down toward Barret]] </tw-passagedata><tw-passagedata pid="62" name="Walk down toward Barret" tags="" position="3675,882" size="100,100">Barret: This mission was a success. But don&#39;t get lazy now.
 
 Barret: The hard part&#39;s still to come! Don&#39;t y&#39;all be scared of that explosion!
 
@@ -674,67 +685,66 @@ Barret: Cause the next one&#39;s gonna be bigger than that!
 
 Barret: Meet back at the hideout!! Move out!
 
-[[Follow the group]]</tw-passagedata><tw-passagedata pid="64" name="Follow the group" tags="" position="3667,1119" size="100,100">[[Talk to Barret|Talk to Barret004]]
+[[Follow the group]]</tw-passagedata><tw-passagedata pid="63" name="Follow the group" tags="" position="3667,1119" size="100,100">[[Talk to Barret|Talk to Barret004]]
 [[Wait for Tifa to go inside]]
 
-[[Go into bar|7th Heaven]]</tw-passagedata><tw-passagedata pid="65" name="Out of my way!" tags="" position="3612,1397" size="100,100">Barret: Heh! Jes calm down.
+[[Go into bar|7th Heaven]]</tw-passagedata><tw-passagedata pid="64" name="Out of my way!" tags="" position="3612,1397" size="100,100">Barret: Heh! Jes calm down.
 
 Barret: Can&#39;t have people suspectin&#39; us.
 
-[[Continue|Wait for Tifa to go inside]]</tw-passagedata><tw-passagedata pid="66" name="Wait for Tifa to go inside" tags="" position="3747,1622" size="100,100">Barret: Ok! Go on ahead.
+[[Continue|Wait for Tifa to go inside]]</tw-passagedata><tw-passagedata pid="65" name="Wait for Tifa to go inside" tags="" position="3723.6666666666665,1607" size="100,100">Barret: Ok! Go on ahead.
 
 [[Talk to Barret|Talk to Barret 00402]]
-[[Go into bar|7th Heaven]]</tw-passagedata><tw-passagedata pid="67" name="Talk to Barret004" tags="" position="3530,1250" size="100,100">First time
+[[Go into bar|7th Heaven]]</tw-passagedata><tw-passagedata pid="66" name="Talk to Barret004" tags="" position="3530,1250" size="100,100">if(isFirstTime()){
 
-Barret: Heh heh...
+  Barret: Heh heh...
 
-Barret: You wanna meet your little baby?
+  Barret: You wanna meet your little baby?
 
-[[Little baby?]]
+  [[Little baby?]]
 
-[[Out of my way!]]
+  [[Out of my way!]]
 
-Afterwards
+}else{
+  Barret: Heh! Jes calm down.
 
-Barret:
+  Barret: Can&#39;t have people suspectin&#39; us.
+}</tw-passagedata><tw-passagedata pid="67" name="Talk to Barret 00402" tags="" position="4149,1394" size="100,100">Barret: You! Cloud!! Get off your slow-movin&#39; ass!!
 
-
-Heh! Jes calm down.
-
-Can&#39;t have people suspectin&#39; us.</tw-passagedata><tw-passagedata pid="68" name="Talk to Barret 00402" tags="" position="4149,1394" size="100,100">Barret: You! Cloud!! Get off your slow-movin&#39; ass!!
-
-[[7th Heaven]]</tw-passagedata><tw-passagedata pid="69" name="Little baby?" tags="" position="3409,1399" size="100,100">Barret: Hey! Don&#39; act like you don&#39;t know what I mean!
+[[7th Heaven]]</tw-passagedata><tw-passagedata pid="68" name="Little baby?" tags="" position="3409,1399" size="100,100">Barret: Hey! Don&#39; act like you don&#39;t know what I mean!
 
 Barret: I&#39;m tellin&#39; you...
 
-[[Continue|Wait for Tifa to go inside]]</tw-passagedata><tw-passagedata pid="70" name="Yeah" tags="" position="5146,796" size="100,100">Tifa: I should have known.
+[[Continue|Wait for Tifa to go inside]]</tw-passagedata><tw-passagedata pid="69" name="Yeah" tags="" position="5146,796" size="100,100">Tifa: I should have known.
 
 Tifa: He&#39;s always pushing people around, and you&#39;ve always been in fights ever since you were little.
 
 Tifa: I was worried.
 
-[[Continue|Flowers]]</tw-passagedata><tw-passagedata pid="71" name="Not this time" tags="" position="5298,796" size="100,100">Tifa: Hmm. You&#39;ve grown up.
+[[Continue|Tifa and Flowers]]</tw-passagedata><tw-passagedata pid="70" name="Not this time" tags="" position="5298,796" size="100,100">Tifa: Hmm. You&#39;ve grown up.
 
 Tifa: When you were little you used to get into fights at the drop of a hat.
 
-[[Continue|Flowers]]</tw-passagedata><tw-passagedata pid="72" name="Flowers" tags="" position="5228,954" size="100,100">If you bought flower from Aeris
+[[Continue|Tifa and Flowers]]</tw-passagedata><tw-passagedata pid="71" name="Tifa and Flowers" tags="" position="5228,954" size="100,100">// If you bought flower from Aeris
 
-Tifa: Flowers? How nice...
+if(getViews([[Buy a flower from Aeris]]) &gt; 0){
+  Tifa: Flowers? How nice...
 
-Tifa: You almost never see them here in the slums.
+  Tifa: You almost never see them here in the slums.
 
-Tifa: But...
+  Tifa: But...
 
-Tifa: A flower for me? Oh Cloud, you shouldn&#39;t have...
+  Tifa: A flower for me? Oh Cloud, you shouldn&#39;t have...
 
-Cloud: No big.
+  Cloud: No big.
 
-[[Give it to Tifa]]
-[[Give it to Marlene]]
-
-Otherwise
-
-Tifa: I&#39;m so glad everyone&#39;s safe.</tw-passagedata><tw-passagedata pid="73" name="Give it to Tifa" tags="" position="5153,1104" size="100,100">Choose this if you want to date Tifa
+  [[Give it to Tifa]]
+  [[Give it to Marlene]]
+}else{
+	Tifa: I&#39;m so glad everyone&#39;s safe.
+	
+	[[Continue|Inside 7th Heaven]]
+}</tw-passagedata><tw-passagedata pid="72" name="Give it to Tifa" tags="" position="5089.666666666666,1080.6666666666667" size="100,100">// Choose this if you want to date Tifa
 
 Tifa: Thank you, Cloud. It smells wonderful.
 
@@ -742,30 +752,35 @@ Tifa: Maybe I should fill the store with flowers.
 
 Tifa: Cloud, this one still has roots. I can probably start others from it.
 
-[[Continue|Inside 7th Heaven]]</tw-passagedata><tw-passagedata pid="74" name="Give it to Marlene" tags="" position="5303,1104" size="100,100">Choose this if you want to date Barret
+[[Continue|Inside 7th Heaven]]</tw-passagedata><tw-passagedata pid="73" name="Give it to Marlene" tags="" position="5376.333333333333,1107.3333333333335" size="100,100">Choose this if you want to date Barret
 
-[[Continue|Inside 7th Heaven]]</tw-passagedata><tw-passagedata pid="75" name="Inside 7th Heaven" tags="" position="5243,1281" size="100,100">[[Talk to Biggs|Talk to Biggs004]]
-[[Talk to Biggs again|Talk to Biggs again004]]
+[[Continue|Inside 7th Heaven]]</tw-passagedata><tw-passagedata pid="74" name="Inside 7th Heaven" tags="" position="5243,1281" size="100,100">[[Talk to Biggs|Talk to Biggs004]]
 [[Talk to Wedge|Talk to Wedge004]]
 [[Talk to Jessie|Talk to Jessie004]]
 [[Talk to Marlene|Talk to Marlene004]]
 [[Talk to Tifa|Talk to Tifa004]]
 
-[[Go outside|Try to go outside]]</tw-passagedata><tw-passagedata pid="76" name="Talk to Biggs004" tags="" position="4876,1247" size="100,100">Biggs: Aaah!! Nothin&#39; like that first drink after a job.
+[[Go outside|Try to go outside]]</tw-passagedata><tw-passagedata pid="75" name="Talk to Biggs004" tags="" position="4877.666666666667,1247" size="100,100">if(isFirstTime()){
+  Biggs: Aaah!! Nothin&#39; like that first drink after a job.
 
-Biggs: Hic!!
+  Biggs: Hic!!
 
-Biggs: Why don&#39;t you have one too?
+  Biggs: Why don&#39;t you have one too?
 
-[[No|No to drink]]
+  [[No|No to drink]]
 
-[[Yeah, why not?|Yes to drink]]</tw-passagedata><tw-passagedata pid="77" name="No to drink" tags="" position="4801,1397" size="100,100">Biggs: What!? You tellin&#39; me you&#39;re too good to drink with me?
+  [[Yeah, why not?|Yes to drink]]
+}else{
+  Biggs: Hic...!!
 
-Biggs: Don&#39;t act big-headed jus&#39; because you were in SOLDIER!</tw-passagedata><tw-passagedata pid="78" name="Yes to drink" tags="" position="4951,1397" size="100,100">Biggs: Oh!! That&#39;s more like it!!
+  Biggs: Oh...... Don&#39;t tell Barret what I jus said.
+  
+  [[Continue|Inside 7th Heaven]]
+ }</tw-passagedata><tw-passagedata pid="76" name="No to drink" tags="" position="4801,1397" size="100,100">Biggs: What!? You tellin&#39; me you&#39;re too good to drink with me?
 
-Biggs: Even if you were with SOLDIER, you&#39;re still a rookie here. So you&#39;d better listen to whatever I tell ya!</tw-passagedata><tw-passagedata pid="79" name="Talk to Biggs again004" tags="" position="5343,1504" size="100,100">Biggs: Hic...!!
+Biggs: Don&#39;t act big-headed jus&#39; because you were in SOLDIER!</tw-passagedata><tw-passagedata pid="77" name="Yes to drink" tags="" position="4951,1397" size="100,100">Biggs: Oh!! That&#39;s more like it!!
 
-Biggs: Oh...... Don&#39;t tell Barret what I jus said.</tw-passagedata><tw-passagedata pid="80" name="Talk to Wedge004" tags="" position="5265,1802" size="100,100">Wedge: Oh, Cloud!
+Biggs: Even if you were with SOLDIER, you&#39;re still a rookie here. So you&#39;d better listen to whatever I tell ya!</tw-passagedata><tw-passagedata pid="78" name="Talk to Wedge004" tags="" position="5265,1802" size="100,100">Wedge: Oh, Cloud!
 
 Wedge: Tifa really knows how to cook. Mmm, mmm......
 
@@ -774,23 +789,23 @@ Wedge: Anyway, let me tell you somethin&#39;
 [[About what?]]
 [[I&#39;m not interested in your stories]]
 
-</tw-passagedata><tw-passagedata pid="81" name="About what?" tags="" position="5139,1977" size="100,100">Wedge: Tifa always lets me taste her cooking.
+</tw-passagedata><tw-passagedata pid="79" name="About what?" tags="" position="5139,1977" size="100,100">Wedge: Tifa always lets me taste her cooking.
 
 Wedge: And look at me now, I&#39;m rolly-polly.
 
 Wedge: Don&#39;t know whether I should be happy or sad. But it&#39;s the good food and drinks that make this shop famous.
 
-[[Continue|Inside 7th Heaven]]</tw-passagedata><tw-passagedata pid="82" name="I&#39;m not interested in your stories" tags="" position="5323,1972" size="100,100">Wedge: Cloud...... ......forget it.
+[[Continue|Inside 7th Heaven]]</tw-passagedata><tw-passagedata pid="80" name="I&#39;m not interested in your stories" tags="" position="5323,1972" size="100,100">Wedge: Cloud...... ......forget it.
 
-[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="83" name="Talk to Jessie004" tags="" position="5628,1291" size="100,100">Jessie: Careless...... You&#39;re getting all excited.
+[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="81" name="Talk to Jessie004" tags="" position="5628,1291" size="100,100">Jessie: Careless...... You&#39;re getting all excited.
 
 Jessie: Wonder what for......?
 
-[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="84" name="Talk to Marlene004" tags="" position="5612,1421" size="100,100">Marlene: ...........
+[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="82" name="Talk to Marlene004" tags="" position="5612,1421" size="100,100">Marlene: ...........
 
-[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="85" name="Talk to Tifa004" tags="" position="5613,1552" size="100,100">Tifa: Sorry, Cloud. Marlene seems a little shy.
+[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="83" name="Talk to Tifa004" tags="" position="5613,1552" size="100,100">Tifa: Sorry, Cloud. Marlene seems a little shy.
 
-[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="86" name="Try to go outside" tags="" position="5484,1944" size="100,100">Marlene: Papa, welcome home!
+[[Continue|Inside 7th Heaven]] </tw-passagedata><tw-passagedata pid="84" name="Try to go outside" tags="" position="5484,1944" size="100,100">Marlene: Papa, welcome home!
 
 If Marlene got flower
 
@@ -816,20 +831,20 @@ Barret: Great!!
 
 Barret: Get in here, fools!! We&#39;re startin&#39; the meetin&#39;!!
 
-[[Continue|Wait in 7th Heaven]]</tw-passagedata><tw-passagedata pid="87" name="Approach bar stools" tags="" position="5336,2462" size="100,100">Tifa: Sit down.
+[[Continue|Wait in 7th Heaven]]</tw-passagedata><tw-passagedata pid="85" name="Approach bar stools" tags="" position="5336,2462" size="100,100">Tifa: Sit down.
 
 Tifa: How about...
 
 Tifa: ...something to drink?
 
 [[I don&#39;t feel like it|Say no to Tifa]]
-[[Give me something hard|Say yes to Tifa]]</tw-passagedata><tw-passagedata pid="88" name="Say no to Tifa" tags="" position="5149,2695" size="100,100">Tifa: OHH!!
+[[Give me something hard|Say yes to Tifa]]</tw-passagedata><tw-passagedata pid="86" name="Say no to Tifa" tags="" position="5149,2695" size="100,100">Tifa: OHH!!
 
 Tifa: I can make a drink just as good as anyone else.
 
 Tifa: Everyone says, my drinks taste the best!
 
-[[Continue|In bar]]</tw-passagedata><tw-passagedata pid="89" name="Say yes to Tifa" tags="" position="5379,2660" size="100,100">Choose this if you want to date Tifa
+[[Continue|In bar]]</tw-passagedata><tw-passagedata pid="87" name="Say yes to Tifa" tags="" position="5379,2660" size="100,100">Choose this if you want to date Tifa
 
 Tifa: Just a minute. I&#39;ll make one for you.
 
@@ -845,13 +860,13 @@ Tifa: Make sure you get your pay from Barret.
 
 Cloud: Don&#39;t worry. Once I get that money, I&#39;m outta here.
 
-[[Continue|In bar]]</tw-passagedata><tw-passagedata pid="90" name="In bar" tags="" position="5491,2900" size="100,100">Tifa: Cloud. Are you feeling all right?
+[[Continue|In bar]]</tw-passagedata><tw-passagedata pid="88" name="In bar" tags="" position="5491,2900" size="100,100">Tifa: Cloud. Are you feeling all right?
 
 Cloud: ...yeah... Why?
 
 Tifa: No reason. You just look a little tired I guess.
 
-[[Continue|Wait in 7th Heaven]]</tw-passagedata><tw-passagedata pid="91" name="Talk to Tifa in 7th Heaven" tags="" position="5464,2265" size="100,100"> If she hasn&#39;t offered you a drink yet
+[[Continue|Wait in 7th Heaven]]</tw-passagedata><tw-passagedata pid="89" name="Talk to Tifa in 7th Heaven" tags="" position="5464,2265" size="100,100"> If she hasn&#39;t offered you a drink yet
 
 Tifa: Cloud... come over here.
 
@@ -862,12 +877,12 @@ Otherwise
 Tifa: You&#39;d better go down below.
 
 [[Continue|Approach bar stools]]
-</tw-passagedata><tw-passagedata pid="92" name="Wait in 7th Heaven" tags="" position="5681,2465" size="100,100">[[Approach bar stools]]
+</tw-passagedata><tw-passagedata pid="90" name="Wait in 7th Heaven" tags="" position="5681,2465" size="100,100">[[Approach bar stools]]
 [[Talk to Tifa|Talk to Tifa in 7th Heaven]]
 
 Ride the pinball machine downstairs when ready.
 
-[[Go down|Debriefing]]</tw-passagedata><tw-passagedata pid="93" name="Check TV" tags="" position="6236,675" size="100,100">President Shinra: .........today the No.1 Reactor was bombed. The terrorist group AVALANCHE has claimed responsibility for the bombing.
+[[Go down|Debriefing]]</tw-passagedata><tw-passagedata pid="91" name="Check TV" tags="" position="6236,675" size="100,100">President Shinra: .........today the No.1 Reactor was bombed. The terrorist group AVALANCHE has claimed responsibility for the bombing.
 
 President Shinra: It is expected that AVALANCHE will continue its reign of terror.
 
@@ -875,10 +890,10 @@ President Shinra: But citizens of Midgar, there is no need to fear.
 
 President Shinra: I have immediately mobilized SOLDIER to protect our citizenry against this senseless violence. Thank you and good night.
 
-[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="94" name="Talk to Wedge006" tags="" position="7041,818" size="100,100">Wedge: You think I&#39;m a little too uptight?
+[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="92" name="Talk to Wedge006" tags="" position="7041,818" size="100,100">Wedge: You think I&#39;m a little too uptight?
 
 [[Yeah...]]
-[[No...]]</tw-passagedata><tw-passagedata pid="95" name="Yeah..." tags="" position="6935,665" size="100,100">Wedge: The next mission will be to blow up the Sector 5 Reactor.
+[[No...]]</tw-passagedata><tw-passagedata pid="93" name="Yeah..." tags="" position="6935,665" size="100,100">Wedge: The next mission will be to blow up the Sector 5 Reactor.
 
 Wedge: Cloud, you&#39;re great! Don&#39;t you ever get nervous?
 
@@ -886,9 +901,9 @@ Wedge: Or are you like, impervious to feelings? Naw, that couldn&#39;t be it.
 
 [[Continue|Debriefing]]
 
-</tw-passagedata><tw-passagedata pid="96" name="No..." tags="" position="6955,960" size="100,100">Wedge: Well, that&#39;s ok. Don&#39;t worry about me. I don&#39;t look like it, but I&#39;m a coward at heart.
+</tw-passagedata><tw-passagedata pid="94" name="No..." tags="" position="6955,960" size="100,100">Wedge: Well, that&#39;s ok. Don&#39;t worry about me. I don&#39;t look like it, but I&#39;m a coward at heart.
 
-[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="97" name="Talk to Jessie006" tags="" position="6296,855" size="100,100">Jessie: Oops...
+[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="95" name="Talk to Jessie006" tags="" position="6296,855" size="100,100">Jessie: Oops...
 
 Jessie: Hey, look at the news... What a blast.
 
@@ -896,9 +911,9 @@ Jessie: Think it was all because of my bomb? But all I really did was just make 
 
 Jessie: Oh no! I must&#39;ve made a miscalculation somewhere.
 
-[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="98" name="Talk to Jessie again006" tags="" position="6304,1027" size="100,100">Jessie: Hey, that was my bomb&#39;s debut. Makes me kinda proud.
+[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="96" name="Talk to Jessie again006" tags="" position="6304,1027" size="100,100">Jessie: Hey, that was my bomb&#39;s debut. Makes me kinda proud.
 
-[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="99" name="Approach Barret" tags="" position="6669,985" size="100,100">Barret: Yo, Cloud! There&#39;s somethin&#39; I wanna ask ya.
+[[Continue|Debriefing]] </tw-passagedata><tw-passagedata pid="97" name="Approach Barret" tags="" position="6669,985" size="100,100">Barret: Yo, Cloud! There&#39;s somethin&#39; I wanna ask ya.
 
 Barret: Was there anyone from SOLDIER fighting us today?
 
@@ -926,13 +941,13 @@ Barret: You asked me a question and I answered it...that&#39;s all.
 
 Cloud: I&#39;m going upstairs. I want to talk about my money.
 
-[[Continue|Debriefing006]]</tw-passagedata><tw-passagedata pid="100" name="Debriefing006" tags="" position="6664,1235" size="100,100">[[Talk to Barret|Talk to Barret 00602]]
+[[Continue|Debriefing006]]</tw-passagedata><tw-passagedata pid="98" name="Debriefing006" tags="" position="6664,1235" size="100,100">[[Talk to Barret|Talk to Barret 00602]]
 [[Talk to Marlene|Talk to Marlene 00602]]
 
 [[Go back toward pinball machine 01]]
-</tw-passagedata><tw-passagedata pid="101" name="Talk to Tifa 00602" tags="" position="6439,2095" size="100,100">Tifa: Straighten things up with everyone for me.
+</tw-passagedata><tw-passagedata pid="99" name="Talk to Tifa 00602" tags="" position="6439,2095" size="100,100">Tifa: Straighten things up with everyone for me.
 
-[[Continue|Go back toward pinball machine 02]] </tw-passagedata><tw-passagedata pid="102" name="Talk to Jessie 00602" tags="" position="6427,1950" size="100,100">Jessie: Money...
+[[Continue|Go back toward pinball machine 02]] </tw-passagedata><tw-passagedata pid="100" name="Talk to Jessie 00602" tags="" position="6427,1950" size="100,100">Jessie: Money...
 
 Jessie: Oh my. It must have been for a lot of it.
 
@@ -940,11 +955,11 @@ Jessie: Sure! Well, what the hell? It&#39;s a verbal agreement. Now let me figur
 
 Jessie: Oh stop it, Cloud! Did you hear me?
 
-[[Continue|Go back toward pinball machine 02]] </tw-passagedata><tw-passagedata pid="103" name="Talk to Barret 00602" tags="" position="6906,1142" size="100,100">Barret: Shucks!! ............money...
+[[Continue|Go back toward pinball machine 02]] </tw-passagedata><tw-passagedata pid="101" name="Talk to Barret 00602" tags="" position="6906,1142" size="100,100">Barret: Shucks!! ............money...
 
-[[Continue|Debriefing006]] </tw-passagedata><tw-passagedata pid="104" name="Talk to Marlene 00602" tags="" position="6911,1283" size="100,100">Marlene: Papa, you&#39;re so great!
+[[Continue|Debriefing006]] </tw-passagedata><tw-passagedata pid="102" name="Talk to Marlene 00602" tags="" position="6911,1283" size="100,100">Marlene: Papa, you&#39;re so great!
 
-[[Continue|Debriefing006]] </tw-passagedata><tw-passagedata pid="105" name="Go back toward pinball machine 01" tags="" position="6682,1584" size="100,100">Tifa: Wait, Cloud!
+[[Continue|Debriefing006]] </tw-passagedata><tw-passagedata pid="103" name="Go back toward pinball machine 01" tags="" position="6682,1584" size="100,100">Tifa: Wait, Cloud!
 
 Barret: Tifa! Let him go!
 
@@ -959,11 +974,11 @@ Cloud: But don&#39;t get me wrong!
 Cloud: I don&#39;t care about AVALANCHE or the Planet for that matter!
 
 [[Continue|Go back toward pinball machine 02]]
-</tw-passagedata><tw-passagedata pid="106" name="Go back toward pinball machine 02" tags="" position="6687,1823" size="100,100">[[Talk to Wedge|Talk to Wedge 00602]]
+</tw-passagedata><tw-passagedata pid="104" name="Go back toward pinball machine 02" tags="" position="6687,1823" size="100,100">[[Talk to Wedge|Talk to Wedge 00602]]
 [[Talk to Jessie|Talk to Jessie 00602]]
 [[Talk to Tifa|Talk to Tifa 00602]]
 
-[[Go upstairs, try to leave|Childhood Promise]]</tw-passagedata><tw-passagedata pid="107" name="Talk to Wedge 00602" tags="" position="6931,1944" size="100,100">Wedge: .......Cloud.
+[[Go upstairs, try to leave|Childhood Promise]]</tw-passagedata><tw-passagedata pid="105" name="Talk to Wedge 00602" tags="" position="6931,1944" size="100,100">Wedge: .......Cloud.
 
 Wedge: You say you don&#39;t care, but you came to talk to me.
 
@@ -974,19 +989,19 @@ Wedge: Isn&#39;t that right?
 [[Blow off]]
 [[I really don&#39;t care]]
 
-</tw-passagedata><tw-passagedata pid="108" name="Blow off" tags="" position="6957,2128" size="100,100">Wedge: Yeah, well. You look kind of lonely to me.
+</tw-passagedata><tw-passagedata pid="106" name="Blow off" tags="" position="6957,2128" size="100,100">Wedge: Yeah, well. You look kind of lonely to me.
 
 Wedge: If you ever got anything you want to get off your chest, you can always talk to me.
 
-[[Continue|Go back toward pinball machine 02]]</tw-passagedata><tw-passagedata pid="109" name="I really don&#39;t care" tags="" position="7082,1886" size="100,100">Wedge: You&#39;re terrible. Real cold blooded.
+[[Continue|Go back toward pinball machine 02]]</tw-passagedata><tw-passagedata pid="107" name="I really don&#39;t care" tags="" position="7082,1886" size="100,100">Wedge: You&#39;re terrible. Real cold blooded.
 
-[[Continue|Go back toward pinball machine 02]]</tw-passagedata><tw-passagedata pid="110" name="How can you say that!" tags="" position="7758,739" size="100,100">
+[[Continue|Go back toward pinball machine 02]]</tw-passagedata><tw-passagedata pid="108" name="How can you say that!" tags="" position="7758,739" size="100,100">
 
 Choose this if you want to date Tifa
 
-[[Continue|Childhood Promise 2]]</tw-passagedata><tw-passagedata pid="111" name="......Sorry" tags="" position="7975,728" size="100,100">Choose this if you want to date Aeris/Yuffie/Barret
+[[Continue|Childhood Promise 2]]</tw-passagedata><tw-passagedata pid="109" name="......Sorry" tags="" position="7975,728" size="100,100">Choose this if you want to date Aeris/Yuffie/Barret
 
-[[Continue|Childhood Promise 2]]</tw-passagedata><tw-passagedata pid="112" name="Childhood Promise 2" tags="" position="7863,948" size="100,100">Tifa: Please Cloud...
+[[Continue|Childhood Promise 2]]</tw-passagedata><tw-passagedata pid="110" name="Childhood Promise 2" tags="" position="7863,948" size="100,100">Tifa: Please Cloud...
 
 Tifa: Cloud... I can&#39;t believe this is goodbye.
 
@@ -998,7 +1013,7 @@ Tifa: So you DID forget.
 
 Tifa: Remember......Cloud. It was seven years ago...
 
-[[Continue|Flashback in 7th Heaven]]</tw-passagedata><tw-passagedata pid="113" name="Flashback in 7th Heaven" tags="" position="7863,1098" size="100,100">[NIVL_E1] Flashback scene by the well in Nibelheim
+[[Continue|Flashback in 7th Heaven]]</tw-passagedata><tw-passagedata pid="111" name="Flashback in 7th Heaven" tags="" position="7863,1098" size="100,100">[NIVL_E1] Flashback scene by the well in Nibelheim
 
 Tifa: Look, the well.
 
@@ -1053,7 +1068,7 @@ Tifa: Come on--! Promise me----!
 Cloud: All right......I promise.
 
 [[Continue|End flashback]]
-</tw-passagedata><tw-passagedata pid="114" name="End flashback" tags="" position="7863,1248" size="100,100">Tifa: You remember now, don&#39;t you... our promise?
+</tw-passagedata><tw-passagedata pid="112" name="End flashback" tags="" position="7863,1248" size="100,100">Tifa: You remember now, don&#39;t you... our promise?
 
 Cloud: I&#39;m not a hero and I&#39;m not famous. I can&#39;t keep......the promise.
 
@@ -1089,26 +1104,26 @@ Barret: 2000!
 
 Tifa: Thanks, Cloud.
 
-[[Go back upstairs after sleeping|The Next Morning]]</tw-passagedata><tw-passagedata pid="115" name="The End of part 1" tags="" position="8520,1826" size="100,100">YEAAAAAH</tw-passagedata><tw-passagedata pid="116" name="Talk to Tifa 007" tags="" position="8853,558" size="100,100">. Don&#39;t do this if you want to date Aeris or Yuffie.
+[[Go back upstairs after sleeping|The Next Morning]]</tw-passagedata><tw-passagedata pid="113" name="The End of part 1" tags="" position="8520,1826" size="100,100">YEAAAAAH</tw-passagedata><tw-passagedata pid="114" name="Talk to Tifa 007" tags="" position="8853,558" size="100,100">. Don&#39;t do this if you want to date Aeris or Yuffie.
 
 Tifa: Good Morning! Cloud!
 
 Tifa: Did you sleep well?
 
 [[Barret&#39;s snoring kept me up......]]
-[[Next to you, who wouldn&#39;t?]]</tw-passagedata><tw-passagedata pid="117" name="Barret&#39;s snoring kept me up......" tags="" position="8811,736" size="100,100"> Choose this if you want to date Barret
+[[Next to you, who wouldn&#39;t?]]</tw-passagedata><tw-passagedata pid="115" name="Barret&#39;s snoring kept me up......" tags="" position="8811,736" size="100,100"> Choose this if you want to date Barret
 
 Tifa: psstpsst...
 
 Tifa: (keep it down, they&#39;ll hear you. Barret&#39;s always edgy before an operation.)
 
-[[Continue|Talk to Tifa 007 02]]</tw-passagedata><tw-passagedata pid="118" name="Next to you, who wouldn&#39;t?" tags="" position="9008,749" size="100,100">Choose this if you want to date Tifa
+[[Continue|Talk to Tifa 007 02]]</tw-passagedata><tw-passagedata pid="116" name="Next to you, who wouldn&#39;t?" tags="" position="9008,749" size="100,100">Choose this if you want to date Tifa
 
 Tifa: I don&#39;t know what you mean.
 
-[[Continue|Talk to Tifa 007 02]]</tw-passagedata><tw-passagedata pid="119" name="Talk to Tifa 007 02" tags="" position="8803,974" size="100,100">Tifa: I&#39;m going this time.
+[[Continue|Talk to Tifa 007 02]]</tw-passagedata><tw-passagedata pid="117" name="Talk to Tifa 007 02" tags="" position="8803,974" size="100,100">Tifa: I&#39;m going this time.
 
-[[Continue|The Next Morning]]</tw-passagedata><tw-passagedata pid="120" name="Talk to Barret 007" tags="" position="8535,1139" size="100,100">Barret: Our target&#39;s the Sector 5 Reactor. Head for the station first.
+[[Continue|The Next Morning]]</tw-passagedata><tw-passagedata pid="118" name="Talk to Barret 007" tags="" position="8535,1139" size="100,100">Barret: Our target&#39;s the Sector 5 Reactor. Head for the station first.
 
 Barret: I&#39;ll fill you in on the train.
 
@@ -1123,7 +1138,7 @@ Barret: I&#39;ll give you that Materia you found. Just teach me how to use it!
 Cloud: ...sigh...
 
 [[Ok, I&#39;ll explain it]]
-[[You wouldn&#39;t understand]]</tw-passagedata><tw-passagedata pid="121" name="Ok, I&#39;ll explain it" tags="" position="8376,1343" size="100,100">
+[[You wouldn&#39;t understand]]</tw-passagedata><tw-passagedata pid="119" name="Ok, I&#39;ll explain it" tags="" position="8376,1343" size="100,100">
 Sure, I&#39;ll explain how Materia works.
 
 First, access the menu.
@@ -1222,11 +1237,11 @@ I&#39;m clueless......
 
 Well, you handle the Materia then!
 
-[[Continue|Talk to Barret 007 002]]</tw-passagedata><tw-passagedata pid="122" name="You wouldn&#39;t understand" tags="" position="8675,1349" size="100,100">Barret: So this is what makes them guys in SOLDIER so great, huh!?
+[[Continue|Talk to Barret 007 002]]</tw-passagedata><tw-passagedata pid="120" name="You wouldn&#39;t understand" tags="" position="8675,1349" size="100,100">Barret: So this is what makes them guys in SOLDIER so great, huh!?
 
 Barret: Ok. I&#39;ll ask Jessie again later. But you&#39;re in charge of the Materia!
 
-[[Continue|Talk to Barret 007 002]]</tw-passagedata><tw-passagedata pid="123" name="Talk to Marlene 077 003" tags="" position="8880,389" size="100,100">Marlene: Take care!</tw-passagedata><tw-passagedata pid="124" name="Talk to Barret 007 002" tags="" position="8526,1458" size="100,100">[Materia System] Access the menu and select [Materia] to equip Materia.
+[[Continue|Talk to Barret 007 002]]</tw-passagedata><tw-passagedata pid="121" name="Talk to Marlene 077 003" tags="" position="8880,389" size="100,100">Marlene: Take care!</tw-passagedata><tw-passagedata pid="122" name="Talk to Barret 007 002" tags="" position="8526,1458" size="100,100">[Materia System] Access the menu and select [Materia] to equip Materia.
 
 If you have not talked to Tifa in the morning
 
