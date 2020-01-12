@@ -27,6 +27,7 @@
     document.getElementById('play').innerHTML += '<p>' + str + '</p>';
   }
 
+  // return the number if times you visited the passage.
   function getViews(nameOfPassage){
     // check if not used. if not used set it to current passage.
     if(!nameOfPassage){
@@ -42,6 +43,16 @@
     return oldHistory[nameOfPassage];
   }
 
+  // helper function for getViews(). returns true if it's your first time visiting the passage
+  function isFirstTime(){
+    if(getViews(currentPassage) > 0){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
+  // add input to the history log.
   function logHistory(nameOfPassage){
     console.log('logHistory(): ' + nameOfPassage);
 
