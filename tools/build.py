@@ -9,20 +9,16 @@ templateTocFileName = '../template/toc.html'
 
 nFiles = 22 #22 files. 1.html > 22.html
 
-outputFileName = '../release/index.html'
+outputFileName = '../release/index.html' # the finished the product after build is done.
 
-def getTemplate(fileName):
-    print('getTemplate(): ' + fileName)
-
-    with open (fileName, 'rt') as myfile:
-        return myfile.read()
-
+# save the build contents to pre-configed filename
 def saveBuild(contents):
     print('saveBuild(): ' + outputFileName)
 
     with open(outputFileName, 'w+') as f:
         f.write(contents)
 
+# build the 'table of contents' from multiple files and return the results as string
 def buildToc():
     print('buildToc()')
 
@@ -44,6 +40,7 @@ def buildToc():
 
     return contents
 
+# open file and replace <contents> with contents variable and returns the result as a string
 def renderTemplete(fileName, contents):
     print('renderTemplete(): ' + fileName)
 
@@ -67,6 +64,7 @@ def reindexSource(contents):
 
     return contents
 
+# create a playable file in the format of twinejs.
 def buildAsTwinejs():
     print('buildAsTwine()')
 
@@ -83,12 +81,14 @@ def buildAsTwinejs():
 
     saveBuild(contents)
 
+# create a playable file in the new format.
 def buildAsNewEngine():
     print('buildWithNewEngine()')
 
     contents = ''
     contents += renderTemplete(templateTocFileName, buildToc())
 
+    # get passage contents from all source files and merge it into one string.
     print('merge data.')
     for x in range(nFiles):
         fileName = pathToStories + str(x+1) + '.html'
@@ -120,6 +120,8 @@ def buildAsNewEngine():
     #print(str(len(listRows)))
     #finalContents = renderTemplete(templateFileName, mergedPassageData)
     #finalContents = reindexSource(finalContents)
+
+    # join the single rowns into one big string.
     contents = "".join(listRows)
 
     # [[variable:name]] -> 'name'.
@@ -140,6 +142,7 @@ def buildAsNewEngine():
     # insert the break;
     contents = contents.replace('</tw-passagedata>', 'break;')
 
+    # insert the contents into our template
     contents = renderTemplete(templateEngineFileName, contents)
 
     #remove double space
