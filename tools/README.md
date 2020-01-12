@@ -1,9 +1,9 @@
 # Tools
 ## build.py
 Builds the playable html file. Scans the story and merges the twine-files. Should also scan for errors and give stats in the future.
-## twinejs.py
-Shared functions needed for working with twine-files.
 ## check.py
 Check for story errors. As if passages have the same name in different files.
-## join.py
-Joins all the story files. Maybe rename to build.py later.
+## stats.py
+Gather project stats.
+## twinejs.py
+Shared functions needed for working with twine-files.
