@@ -106,7 +106,7 @@ def buildAsNewEngine():
     for nRow in range(len(listRows)):
         striped = listRows[nRow].strip()
         if striped:
-            if striped[0] != '}' and listRows[nRow].find('</tw-passagedata>') < 0 and listRows[nRow].find('{') != len(listRows[nRow])-1:
+            if striped[0] != '}' and listRows[nRow].find('</tw-passagedata>') < 0 and listRows[nRow].find('{') != len(listRows[nRow])-1 and listRows[nRow].find('//') < 0:
                 listRows[nRow] = 'echo(\'' + listRows[nRow] + '\');'
 
         # is it's a starting element?
@@ -128,6 +128,11 @@ def buildAsNewEngine():
     #pattern = '\[\[variable:(.*?)\]\]'
     #replace = "\\1"
     #contents = re.sub(pattern, r"" + replace + "", contents)
+
+    # is the link inside an 'if' we dont want a <a> element. '[[passageName]]' -> 'passageName'.
+    pattern = 'if(.*?)\[\[(.*?)\]\](.*?)'
+    replace = "if\\1'\\2'\\3"
+    contents = re.sub(pattern, r"" + replace + "", contents)
 
     # first the [[label|action]]
     pattern = '\[\[(.*?)\|(.*?)\]\]'
@@ -157,6 +162,7 @@ def buildAsNewEngine():
 
     # fix special characters. needs improvement.
     contents = contents.replace('&lt;', '<') # needed for < in 'if' statments
+    contents = contents.replace('&gt;', '>') # needed for > in 'if' statments
 
     saveBuild(contents)
 
