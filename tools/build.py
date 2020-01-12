@@ -1,9 +1,13 @@
 import re
 import twinejs
 
-templateFileName = '../template/index.html'
-outputFileName = '../release/index.html'
+templateTwinejsFileName = '../template/twinejs.html'
+templateEngineFileName = '../template/engine.html'
+templateTocFileName = '../template/toc.html'
+
 nFiles = 22 #22 files. 1.html > 22.html
+
+outputFileName = '../release/index.html'
 
 def getTemplate(fileName):
     print('getTemplate(): ' + fileName)
@@ -11,25 +15,25 @@ def getTemplate(fileName):
     with open (fileName, 'rt') as myfile:
         return myfile.read()
 
-def saveBuild(fileName, contents):
-    print('saveBuild(): ' + fileName)
+def saveBuild(contents):
+    print('saveBuild(): ' + outputFileName)
 
-    with open(fileName, 'w+') as f:
+    with open(outputFileName, 'w+') as f:
         f.write(contents)
 
-def getAllIndex():
-    print('getAllIndex()')
+def buildToc():
+    print('buildToc()')
 
-    mergedIndexData = ''
+    contents = ''
 
     for x in range(nFiles):
         fileName = '../Stories/' + str(x+1) + '.html'
         print('parse file: ' + fileName)
 
-        mergedIndexData += 'Chapter ' + str(x+1) + '\n'
-        mergedIndexData += twinejs.getIndex(fileName) + '\n\n'
+        contents += 'Chapter ' + str(x+1) + '\n'
+        contents += twinejs.getFirstPassage(fileName) + '\n\n'
 
-    return mergedIndexData
+    return contents
 
 def renderTemplete(fileName, contents):
     print('renderTemplete(): ' + fileName)
@@ -39,6 +43,7 @@ def renderTemplete(fileName, contents):
         renderContents = template.replace('<contents>', contents)
         return renderContents
 
+# reindex the pid for twinejs. does not work yet.
 def reindexSource(contents):
     print('reindexSource()')
 
@@ -53,40 +58,41 @@ def reindexSource(contents):
 
     return contents
 
-def build():
-    print('build()')
+def buildAsTwinejs():
+    print('buildAsTwine()')
 
-    mergedPassageData = ''
-    mergedPassageData += renderTemplete('../template/toc.html', getAllIndex())
+    contents = ''
+    contents += renderTemplete(templateTocFileName, buildToc())
 
     for x in range(nFiles):
         fileName = '../Stories/' + str(x+1) + '.html'
         print('parse file: ' + fileName)
-        mergedPassageData = mergedPassageData + '\n' + twinejs.getAllPassagesFromFile(fileName)
+        contents += '\n' + twinejs.getAllPassagesFromFile(fileName)
 
-    finalContents = renderTemplete(templateFileName, mergedPassageData)
-    finalContents = reindexSource(finalContents)
+    contents = renderTemplete(templateTwinejsFileName, contents)
+    contents = reindexSource(contents)
 
-    saveBuild(outputFileName, finalContents)
+    saveBuild(contents)
 
-def buildWithNewEngine():
+def buildAsNewEngine():
     print('buildWithNewEngine()')
 
-    mergedPassageData = ''
-    mergedPassageData += renderTemplete('../template/toc.html', getAllIndex())
+    contents = ''
+    contents += renderTemplete(templateTocFileName, buildToc())
 
+    print('merge data.')
     for x in range(nFiles):
         fileName = '../Stories/' + str(x+1) + '.html'
-        print('parse file: ' + fileName)
-        mergedPassageData = mergedPassageData + '\n' + twinejs.getAllPassagesFromFile(fileName)
+        print('merge file: ' + fileName)
+        contents += '\n' + twinejs.getAllPassagesFromFile(fileName)
 
     # manual replaces. order is important.
-    mergedPassageData = mergedPassageData.replace('<tw', '\n<tw')
-    mergedPassageData = mergedPassageData.replace('">', '">\n')
-    mergedPassageData = mergedPassageData.replace('</tw', '\n</tw')
+    contents = contents.replace('<tw', '\n<tw')
+    contents = contents.replace('">', '">\n')
+    contents = contents.replace('</tw', '\n</tw')
     #mergedPassageData = mergedPassageData.replace('\n\n', '\n')
 
-    listRows = mergedPassageData.split('\n')
+    listRows = contents.split('\n')
 
     for nRow in range(len(listRows)):
         striped = listRows[nRow].strip()
@@ -105,26 +111,28 @@ def buildWithNewEngine():
     #print(str(len(listRows)))
     #finalContents = renderTemplete(templateFileName, mergedPassageData)
     #finalContents = reindexSource(finalContents)
-    newCode = "".join(listRows)
+    contents = "".join(listRows)
 
     # first the [[label|action]]
     pattern = '\[\[(.*?)\|(.*?)\]\]'
-    replace = "<button type=\"button\" onclick=\"doIt(\\'\\2\\')\">\\1</button>"
-    newCode = re.sub(pattern, r"" + replace + "", newCode)
+    replace = "<a href=\"#\" onclick=\"doIt(\\'\\2\\')\">\\1</a>"
+    contents = re.sub(pattern, r"" + replace + "", contents)
 
     # then the [[label same as action]]
     pattern = '\[\[(.*?)\]\]'
-    replace = "<button type=\"button\" onclick=\"doIt(\\'\\1\\')\">\\1</button>"
-    newCode = re.sub(pattern, r"" + replace + "", newCode)
+    replace = "<a href=\"#\" onclick=\"doIt(\\'\\1\\')\">\\1</a>"
+    contents = re.sub(pattern, r"" + replace + "", contents)
 
     # insert the break;
-    newCode = newCode.replace('</tw-passagedata>', 'break;')
+    contents = contents.replace('</tw-passagedata>', 'break;')
 
-    finalContents = renderTemplete('../engine/index.html', newCode)
-    with open('trash.html', 'w+') as f:
-        f.write(finalContents)
+    contents = renderTemplete(templateEngineFileName, contents)
 
-    #saveBuild(outputFileName, finalContents)
+    #remove empty empty lines
+    while contents.replace('\n\n', '\n') != contents:
+        contents = contents.replace('\n\n', '\n')
+
+    saveBuild(contents)
 
 
-buildWithNewEngine()
+buildAsNewEngine()

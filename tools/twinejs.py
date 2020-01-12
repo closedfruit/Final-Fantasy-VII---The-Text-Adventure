@@ -17,8 +17,8 @@ def getStory():
         pattern = '<tw-storydata.*?>(.*)</tw-storydata>'
         result = re.findall(pattern, contents, re.MULTILINE|re.DOTALL)
         return result[0]
-            
-def getIndex(fileName):
+
+def getFirstPassage(fileName):
     print('getIndex(): ' + fileName)
 
     with open (fileName, 'rt') as myfile:
