@@ -27,7 +27,8 @@ Working with twinejs available here https://github.com/klembot/twinejs/ .
 
 * Code
    * Script to check for duplicate story parts. - Start working with check.py.
-   * Script to join twine parts together.
+   * Script to join twine parts together. - Working.
+   * New javascript engine that allows for simple javascript to be written in twinejs directly. - wip. 
 * Story
    * Part 1: Seeds of resistance
       * First Mission - Transferred from source.
