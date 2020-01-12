@@ -106,7 +106,7 @@ def buildAsNewEngine():
     for nRow in range(len(listRows)):
         striped = listRows[nRow].strip()
         if striped:
-            if striped[0] != '}' and listRows[nRow].find('</tw-passagedata>') < 0:
+            if striped[0] != '}' and listRows[nRow].find('</tw-passagedata>') < 0 and listRows[nRow].find('{') != len(listRows[nRow])-1:
                 listRows[nRow] = 'echo(\'' + listRows[nRow] + '\');'
 
         # is it's a starting element?
@@ -121,6 +121,11 @@ def buildAsNewEngine():
     #finalContents = renderTemplete(templateFileName, mergedPassageData)
     #finalContents = reindexSource(finalContents)
     contents = "".join(listRows)
+
+    # [[variable:name]] -> 'name'.
+    #pattern = '\[\[variable:(.*?)\]\]'
+    #replace = "\\1"
+    #contents = re.sub(pattern, r"" + replace + "", contents)
 
     # first the [[label|action]]
     pattern = '\[\[(.*?)\|(.*?)\]\]'
@@ -146,6 +151,9 @@ def buildAsNewEngine():
     print('remove empty lines.')
     while contents.replace('\n\n', '\n') != contents:
         contents = contents.replace('\n\n', '\n')
+
+    # fix special characters. needs improvement.
+    contents = contents.replace('&lt;', '<') # needed for < in 'if' statments
 
     saveBuild(contents)
 
